@@ -1,4 +1,8 @@
 <?php  $valor = $this->Session->read('Auth.User'); ?> 
+<?php $result = $this->requestAction('pessoas/busca'); ?> 
+
+<?php foreach ($result as $pessoas): ?>
+
 
 <div id="header" class="Anonymous" role="navigation">
 	<div class="container2">
@@ -11,7 +15,7 @@
 			</button>
 			<a id="logo" class="navbar-brand" href="/morarfora4/imovels/"><?php echo $this->Html->image('logo.png'); ?></a>
 			<ul id="logo" class="nav navbar-nav navbar-right">
-				<li><img class="img-perfil-sm" src="#"></li>
+				<li><?php echo $this->html->image('uploads/'.$pessoas['Pessoa']['imagem'], array('class' => 'img-perfil-sm'));?></li>
 				<li><a href="/morarfora4/imovels/"><span class="glyphicon  glyphicon-home"></span> Início</a></li>
 				<li>
 
@@ -30,3 +34,4 @@
 		</div>
 	</div>
 </div>
+<?php endforeach; ?>

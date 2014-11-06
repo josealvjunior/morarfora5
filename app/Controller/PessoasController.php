@@ -60,6 +60,27 @@ class PessoasController extends AppController {
 		$this->set('pessoa', $this->Pessoa->find('first', $options));
 	}
 
+
+	public function busca(){
+
+		$usuario = $this->Auth->user('co_usuario');
+		$conditions =  array('Pessoa.co_usuario' => $usuario);
+
+		$pessoas =  $this->Pessoa->find('all', array( 'conditions' => $conditions ));
+
+		$result = Set::sort($pessoas, '{n}.Pessoa.co_usuario', 'desc');
+
+		if ($this->request->is('requested')) {   //Se for requisição de outra view/element:
+            return $result;
+        } else {  //Senão envia para a view padrão
+            $this->set('pessoas', $result);
+        }
+
+	}
+
+
+
+
 /**
  * add method
  *
