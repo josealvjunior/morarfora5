@@ -10,7 +10,7 @@
 <div class="row">
 	<div class="container centralizar box-branco">
 		<h3>Informações básicas.</h3> 
-		<?php echo $this->Form->create('Pessoa'); ?>
+		<?php echo $this->Form->create('Pessoa', array('type' => 'file')); ?>
 		<fieldset>
 			<?php echo $this->Form->input('co_usuario');?>
 			<div class="form-group">
@@ -133,7 +133,7 @@
 			</div>
 			<div class="form-group">
 				<label for="exampleInputFile">Insira um foto para o seu perfil.</label>
-				<input type="file" id="foto" name = "foto">
+				<?php echo $this->Form->input('Pessoa.imagem',array('type' => 'file'));?>
 			</div>
 		</fieldset>
 		<?php echo $this->Form->button('SALVAR', array('type'=>'submit', 'class' => 'btn btn-md btn-default btn-block')); ?>

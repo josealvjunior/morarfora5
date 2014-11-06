@@ -24,7 +24,7 @@
 		</div>
 		<p>Por favor, preencha as informações abaixo para ter acesso aos imóveis compatíveis com seu perfil social.</p>
 		<hr>
-		<?php echo $this->Form->create('Pessoa'); ?>
+		<?php echo $this->Form->create('Imovel', array('type' => 'file')); ?>
 		<fieldset>
 			<div class="form-group">
 				<?php echo $this->Form->input('nome', array('class' => 'form-control', 'label' => 'Nome'));?>
@@ -146,7 +146,7 @@
 			</div>
 			<div class="form-group">
 				<label for="exampleInputFile">Insira um foto para o seu perfil.</label>
-				<input type="file" id="foto" name = "foto">
+				<?php echo $this->Form->input('Pessoa.imagem',array('type' => 'file'));?>
 			</div>
 		</fieldset>
 		<?php echo $this->Form->button('CADASTRAR', array('type'=>'submit', 'class' => 'btn btn-md btn-default btn-block')); ?>
